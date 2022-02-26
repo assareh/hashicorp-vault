@@ -137,9 +137,11 @@ forwarded to the leader.
 Similar to other storage backends, data that is written to the Raft log and FSM
 will be encrypted by Vault's barrier.
 
-Vault does not currently offer automated dead server cleanup. If you wish to
-decommission a node, or a node dies and must be replaced, the node must manually
-be removed from the cluster with the `remove peer`
+As of Vault 1.7, a dead server cleanup capability is available. With this feature 
+enabled, unhealthy nodes are automatically removed from the Raft cluster without 
+manual operator intervention. This is enabled via the [Autopilot 
+API](https://www.vaultproject.io/api/system/storage/raftautopilot). If you wish to 
+decommission a node manually, this can be done with the `remove peer` 
 [command](/docs/commands/operator/raft#remove-peer).
 
 ### Deployment Table
